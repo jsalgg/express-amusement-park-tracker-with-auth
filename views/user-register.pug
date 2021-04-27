@@ -1,5 +1,11 @@
 extends layout
 include utils 
 block content 
-    form(action="") 
-        +field("First Name", "firstName", "")
+    form(action="/user/register" method="POST") 
+        +field("First Name", "firstname", "")
+        +field("Last Name", "lastName", "")
+        +field("Email Address", "emailAddress", "")
+        +field("Password", "password", "")
+        +field("Confirm Password", "confirmedPassword", "")
+        input(type="hidden", name="_csrf" value=csrfToken)
+        button(type="submit" class="btn btn-primary") Button
